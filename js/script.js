@@ -7,6 +7,8 @@ function validar(){
   var valTelef = validarTelefono();
   var valEdad  = validarEdad();
   var valEmail = validarVacio('email','emailError');
+
+  validarEmail(email);
   
   var expmailresp = valEmail.match('/^\w+([\.-]?\w+)*@/');
   console.log(expmailresp);
@@ -62,7 +64,7 @@ function validarEdad(){
 function validarEmail(email){
   var expmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
   
-  if (!expmail.test(valEmail)){
+  if (!expmail.test(email)){
     document.getElementById('emailError').innerHTML = "Email con formato invalido";
   }
 
