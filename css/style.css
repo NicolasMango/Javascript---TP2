@@ -1,0 +1,21 @@
+.row{
+	display: flex;
+	flex-direction: row;
+}
+.columna{
+	max-width: 500px;
+
+}
+form{
+	display: flex;
+    flex-direction: column;
+}
+input{
+	width: 150px;
+	margin-bottom: 10px;
+}
+
+div{
+	width:400px;
+	margin-bottom: 10px;
+}
