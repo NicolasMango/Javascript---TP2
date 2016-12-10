@@ -1,23 +1,16 @@
 var msjErrVacio = "Este campo no debe estar vacio";
 
-
 function validar(){
+
   var valNom = validarVacio('nombre','nombreError');
   var valApe = validarVacio('apellido','apellidoError');
   var valTelef = validarTelefono();
   var valEdad  = validarEdad();
   var valEmail = validarVacio('email','emailError');
   
-  var expmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
-  
-  if (!expmail.test(valEmail)){
-    document.getElementById('emailError').innerHTML = "Email con formato invalido";
-  }
-  console.log(expmail);
   var expmailresp = valEmail.match('/^\w+([\.-]?\w+)*@/');
   console.log(expmailresp);
-  prueba();
-
+  
   generarId(valNom,valApe,valEdad)
 }
 
@@ -64,7 +57,16 @@ function validarEdad(){
     document.getElementById('edadError').style.color('red');
     return false
   }
+}
 
+function validarEmail(email){
+  var expmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
+  
+  if (!expmail.test(valEmail)){
+    document.getElementById('emailError').innerHTML = "Email con formato invalido";
+  }
+
+  console.log(expmail);
 }
 
 function generarId(nombre,apellido,edad){
@@ -78,11 +80,6 @@ function generarId(nombre,apellido,edad){
 
   document.getElementById('Id').value = (nombre+apellido+grupo);
   console.log(nombre+apellido+grupo);
+  document.getElementsByClassName('validar').value = '';
   
-}
-
-function prueba(){
-  var elementos = document.getElementsByClassName('validar');
-  var long = document.getElementsByClassName('validar').length;
-
 }
